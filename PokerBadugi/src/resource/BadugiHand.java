@@ -13,7 +13,10 @@ import businessLogic.*;
 public class BadugiHand implements Hand {
     private ArrayList<Card> cards;
     private CardsService cardsService;
-    
+    public static final String HEARTS = "Hearts";
+    public static final String SPADES = "Spades";
+    public static final String DIAMONDS = "Diamonds";
+    public static final String CLUBS = "Clubs";
     
     public void setCardsService(CardsService cardsService) {
         this.cardsService = new CardsService();

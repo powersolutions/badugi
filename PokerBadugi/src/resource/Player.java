@@ -10,17 +10,17 @@ package resource;
  */
 public class Player {
     private String playerType;
-    private Hand hand;
+    protected BadugiHand BadugiHand;
     
-    public void setHand(Hand hand) {
-        this.hand = hand;
+    public void setHand(BadugiHand BadugiHand) {
+        this.BadugiHand = BadugiHand;
     }
     
-    public Hand getHand() {
-        if (this.hand == null) {
-            this.hand = new BadugiHand();
+    public BadugiHand getHand() {
+        if (this.BadugiHand == null) {
+            this.BadugiHand = new BadugiHand();
         }
-        return this.hand;
+        return this.BadugiHand;
     }   
     
     public void setPlayerType(String playerType) {

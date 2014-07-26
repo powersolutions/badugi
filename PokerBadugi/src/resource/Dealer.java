@@ -3,7 +3,8 @@
  * and open the template in the editor.
  */
 package resource;
-
+import java.util.ArrayList;
+import businessLogic.*;
 /**
  *
  * @author lenovo
@@ -31,10 +32,46 @@ public class Dealer {
         this.getCardPack().shuffle();
     }
     
-    public void display() {
+    public String display() {
+        String x = "";
         for (Card c : this.getCardPack().getCards()) {
-            System.out.println(c.getId());
+           
+           x += c.getId();
+           x += "<br>";
+           
         }
-        System.out.println(this.getCardPack().getCount());
+        x += this.getCardPack().getCount();
+        x += "<br>";
+        return x;
+    }
+    
+    
+    
+    public ArrayList<Hand> distributeCards(int playercount,int cardcount)
+    {
+    ArrayList<Hand> HandList=new ArrayList();
+    ArrayList<Card> cards=new ArrayList();
+    
+    int requestedCardCount=playercount*cardcount;
+    
+    if(this.getCardPack().getCards() != null)
+      {
+            for(int i=0;i<playercount;i++)
+            {
+            BadugiHand hand=new BadugiHand();
+            for(int j=0;i<cardcount;i++)
+            {
+           
+            cards.add(this.getCardPack().getCards().get(0));
+            cards.remove(this.getCardPack().getCards().get(0));
+          //  requestedCardCount--;
+            }
+            hand.setHand(cards);
+            HandList.add(hand);
+      }
+           
+      }
+            return HandList;
+    
     }
 }
