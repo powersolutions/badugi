@@ -40,20 +40,38 @@
         </script>
     </head>
     <%@ page language="java" contentType="text/html"%>
-    <%@ page import="resource.Dealer" %>
+    <%@ page import="resource.*" %>
 
     <body>
         <% Dealer dealer = new Dealer();
             dealer.readyCards();
             String x = dealer.display();
-            out.println(x);
+//            out.println(x);
             dealer.shuffleCards();
-            out.println("=======================================================");
+//            out.println("=======================================================");
             String y = dealer.display();
-            out.println(y);
+//            out.println(y);
         
+            User player1=new User();
+            player1.setHand(dealer.distributeCards(4));
+            
+            
+            
+            
+            player1.setUsername("sharfan");
+            
+            
+            
+            String[] xx = player1.showHand();
+            for (int i=0; i<xx.length; i ++) {
+                out.println(xx[i]);
+            }
+            
+            
         %>
         <!-- Header -->
+        
+        
         <div id="top-nav" class="navbar navbar-inverse navbar-static-top" style="background-color: #60829d; border-color: #60829d; min-height: 110px; margin-bottom: 0px;">
             <div class="container">
                 <div class="navbar-header">
@@ -101,7 +119,19 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-md-2"></div>
+                <div class="col-md-2">
+                    
+                    <input type="text" id="playerCards" value="<%  
+            String[] b = player1.showHand();
+            out.println(b[0]);
+            for (int i=1; i<b.length; i ++) {
+                out.println("," +b[i]);
+            } %>">
+                    
+                    
+                    
+                    
+                </div>
                 <div class="col-md-10">
                     <div class="panel panel-default droppable"  style="height: 130px;" >
                         <div class="panel-body" >
@@ -122,22 +152,22 @@
                             <div class="row">
                                 <div class="col-md-3" >
                                     <a href="#" id="c1" class="thumbnail card">
-                                        <img src="images/cards/Spades-Ace.png" alt="card1">
+                                        <img id="imgCard1" src="" alt="card1">
                                     </a>
                                 </div>
                                 <div class="col-md-3">
                                     <a href="#" id="c2" class="thumbnail card">
-                                        <img src="images/cards/Hearts-Ace.png" alt="card1">
+                                        <img id="imgCard2" src="" alt="card2">
                                     </a>
                                 </div>
                                 <div class="col-md-3">
                                     <a href="#" id="c3" class="thumbnail card">
-                                        <img src="images/cards/Diamonds-Ace.png" alt="card1">
+                                        <img id="imgCard3" src="" alt="card3">
                                     </a>
                                 </div>
                                 <div class="col-md-3">
                                     <a href="#" id="c4" class="thumbnail card">
-                                        <img src="images/cards/Clubs-Ace.png"  alt="card1">
+                                        <img id="imgCard4" src=""  alt="card4">
                                     </a>
                                 </div>
                             </div>
@@ -180,4 +210,17 @@
 
 
     </body>
+    <script type="text/javascript">
+        var relativePath = 'images/cards/';
+        var extension = '.png';
+        
+        $(document).ready(function(){
+            var cardNames = $('#playerCards').val();
+//            alert (cardNames);
+            var cards = cardNames.split(",");
+            for (var i = 0; i <cards.length; i++) {
+                $('#imgCard'+(i+1)).attr('src',relativePath+cards[i]+extension);
+            }
+        });
+    </script>
 </html>                      

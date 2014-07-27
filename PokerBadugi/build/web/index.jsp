@@ -27,6 +27,8 @@
         
     </head>
     <body>
+       
+        
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -104,13 +106,13 @@
                     </button>
                     <ul class="dropdown-menu">
                         <li style="width: 250px;">
-                            <form class="navbar-form form" role="form">
+                            <form class="navbar-form form" role="form" action="checkCredentials.jsp" method="POST">
                                 <div class="form-group">
                                     <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
 
                                         <!--EMAIL
                                         ADDRESS-->
-                                        <input id="emailInput" placeholder="email address" class="form-control"
+                                        <input id="emailInput" placeholder="email address" name="emailInput"  class="form-control"
                                         oninvalid="setCustomValidity('Please enter a valid email address!')" onchange="try{setCustomValidity('')}catch(e){}"
                                         required="" type="email">
                                     </div>
@@ -119,7 +121,7 @@
                                     <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-lock color-blue"></i></span>
 
                                         <!--PASSWORD-->
-                                        <input id="passwordInput" placeholder="password" class="form-control"
+                                        <input id="passwordInput" placeholder="password" name="passwordInput" class="form-control"
                                         oninvalid="setCustomValidity('Please enter a password!')" onchange="try{setCustomValidity('')}catch(e){}"
                                         required="" type="password">
                                     </div>
@@ -150,7 +152,7 @@
   <div class="row">
   	<div class="col-md-6">
     
-          <form class="form-horizontal" action="" method="POST">
+          <form class="form-horizontal" action="welcome.jsp" method="POST">
           <fieldset>
             <div id="legend">
               <legend class="">Register</legend>
@@ -199,5 +201,6 @@
     </div> 
   </div>
 </div>
+</form>
     </body>
 </html>
