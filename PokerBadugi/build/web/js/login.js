@@ -7,5 +7,13 @@ $(document).ready(function () {
 		//alert('login');
 		window.location.href ="home.jsp"
 	});
+
 });
+
+  $(document).ready(function() {
+    $('#carousel1').carousel({
+      interval: 1200
+    });
+  });
+
 

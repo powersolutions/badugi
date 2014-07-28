@@ -27,7 +27,7 @@
         int i =  urc.checkCredentials(user);
         if(i==1)
         {
-        response.sendRedirect("home.jsp");
+        response.sendRedirect("playerMode.jsp");
         }
         else
         {
