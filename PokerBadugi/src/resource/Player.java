@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 package resource;
-import java.util.ArrayList;
+import java.util.*;
 /**
  *
  * @author lenovo
@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class Player {
     private String playerType;
     protected BadugiHand BadugiHand;
+   
     
     public void setHand(BadugiHand BadugiHand) {
         this.BadugiHand = BadugiHand;
@@ -50,4 +51,34 @@ public class Player {
        
        return cardNames;
    }
+     
+   public String exchangeCards(List<String> cardsToExchange, Dealer dealer) {
+       int numberOfCards = cardsToExchange.size();
+       ArrayList<Card> replaceList = new ArrayList();
+       for (Card c : this.getHand().getHand()) {
+           for (String cardName : cardsToExchange) {
+               if (cardName == c.getId()) {
+                   replaceList.add(c);
+                   this.getHand().getHand().remove(c);
+//                   continue;
+               }
+           }
+       }
+       dealer.addToUsedCardPack(replaceList);
+       ArrayList<Card> newCards = dealer.replaceCards(numberOfCards);
+//       ArrayList existingCards = this.getHand().getHand();
+       String newCardNames = "";
+       this.getHand().getHand().add(newCards.get(0));
+       newCardNames += newCards.get(0).getId();
+       for (int i = 1; i<newCards.size(); i++) {
+           this.getHand().getHand().add(newCards.get(i));
+           newCardNames += ","+newCards.get(i).getId();
+       }
+       
+       return newCardNames;
+       
+       
+   }
+   
+   
 }

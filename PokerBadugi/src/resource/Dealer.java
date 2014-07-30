@@ -14,6 +14,7 @@ import businessLogic.*;
 public class Dealer {
 
     protected CardPack cardPack;
+    protected CardPack usedCardpack;
 
     public void setCardPack(CardPack cardPack) {
         this.cardPack = cardPack;
@@ -23,8 +24,25 @@ public class Dealer {
         if (this.cardPack == null) {
             this.cardPack = new CardPack();
         }
-
         return this.cardPack;
+    }
+    
+    public void setUsedCardpack(CardPack usedCardpack) {
+        this.usedCardpack = cardPack;
+    }
+
+    public CardPack getUsedCardpack() {
+        if (this.usedCardpack == null) {
+            this.usedCardpack = new CardPack();
+        }
+
+        return this.usedCardpack;
+    }
+    
+    public void addToUsedCardPack(ArrayList<Card> cards) {
+        for (Card c : cards) {
+            this.getUsedCardpack().getCards().add(c);
+        }
     }
 
     public void readyCards() {
@@ -77,6 +95,14 @@ public class Dealer {
 //    
 //    }    
 //            
+    public ArrayList<Card> replaceCards (int cardCount) {
+        ArrayList<Card> cards = new ArrayList();
+        for (int i=0; i<cardCount; i++) {
+            cards.add(this.getCardPack().getCards().remove(0));
+        }
+        
+        return cards;
+    }
     public BadugiHand distributeCards(int cardCount) 
     {
 
@@ -84,11 +110,11 @@ public class Dealer {
          BadugiHand hand = new BadugiHand();
        
 
-        if (this.getCardPack().getCards() != null) {
+        if (this.getCardPack().getCards().size() != 0) {
             for (int i = 0; i < cardCount; i++) {
                
                  cards.add(this.getCardPack().getCards().get(0));
-                 this.getCardPack().getCards().remove(0);
+                 this.getUsedCardpack().getCards().add(this.getCardPack().getCards().remove(0));
                     
                 }
             hand.setHand(cards);

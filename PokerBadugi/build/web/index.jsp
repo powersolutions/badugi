@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
 
-        <!-- bootstrap css -->
+<!-- bootstrap css -->
         <link href="css/bootstrap.min.css" rel="stylesheet" />
         
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
@@ -25,8 +25,7 @@
         <script src="js/bootstrap-modal.js"></script>
         <!-- /bootstrap js -->
 
-        <script src="js/login.js"></script>
-         <!-- Script to Activate the Carousel -->
+      
    
     </head>
     <body>

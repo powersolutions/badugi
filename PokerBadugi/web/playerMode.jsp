@@ -48,7 +48,7 @@
 
                         <li class="menu-item active"><a href="#">Mode</a></li>
                         <li class="menu-item"><a href="help.jsp" class="">Help </a></li>
-                        <li class="menu-item"><a href="#" class="">LogOut </a></li>
+                        <li class="menu-item"><a href="index.jsp" class="">LogOut </a></li>
                     </ul>
                 </div>
             </div>

@@ -30,7 +30,7 @@
        
        out.println(request.getParameter("username"));
        
-       response.sendRedirect("home.jsp");
+       response.sendRedirect("playerMode.jsp");
        %>
     </body>
 </html>
